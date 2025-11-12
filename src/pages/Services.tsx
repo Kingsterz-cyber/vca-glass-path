@@ -120,7 +120,7 @@ const Services = () => {
             <p className="text-lg text-muted-foreground">
               We're here to help with tailored logistics services that fit your unique requirements
             </p>
-            <Button asChild size="lg" className="glass border-primary/30 hover:bg-primary hover:text-primary-foreground">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg">
               <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>

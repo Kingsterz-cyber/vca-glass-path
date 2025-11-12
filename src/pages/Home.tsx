@@ -46,13 +46,10 @@ const Home = () => {
               Seamless customs clearance and reliable cargo transport across Rusumo, Kigali, and Bukavu-Kamembe
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Button asChild size="lg" className="glass border-primary/30 hover:bg-primary hover:text-primary-foreground text-lg px-8">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 rounded-lg">
                 <Link to="/contact">
                   Get Started <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="glass text-lg px-8">
-                <Link to="/tracking">Track Shipment</Link>
               </Button>
             </div>
           </div>
@@ -93,7 +90,7 @@ const Home = () => {
             <p className="text-lg text-muted-foreground">
               Let us handle your customs clearing and cargo transport needs across East Africa
             </p>
-            <Button asChild size="lg" className="glass border-primary/30 hover:bg-primary hover:text-primary-foreground">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg">
               <Link to="/contact">
                 Contact Us Today <ArrowRight className="ml-2 h-5 w-5" />
               </Link>

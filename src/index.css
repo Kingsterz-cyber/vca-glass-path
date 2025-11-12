@@ -8,58 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Glassmorphism Design System for Victory Clearing Agency */
+    /* Cream-White Glassmorphism Design System */
     
-    /* Base colors - Midnight Navy theme */
-    --background: 240 40% 7%;  /* Deep navy #0B1020 */
-    --foreground: 0 0% 98%;    /* Almost white for text */
+    /* Base colors - Bright cream-white theme */
+    --background: 210 40% 98%;  /* #f8fafc near-white with blue-gray hint */
+    --foreground: 0 0% 10%;     /* #1a1a1a dark gray-black for text */
 
     /* Glass effect colors */
     --glass-base: 0 0% 100%;
     --glass-border: 0 0% 100%;
     
-    /* Card colors with transparency */
-    --card: 240 30% 12%;       /* Slightly lighter navy for cards */
-    --card-foreground: 0 0% 98%;
+    /* Card colors */
+    --card: 0 0% 100%;          /* Pure white for cards */
+    --card-foreground: 0 0% 10%;
 
-    --popover: 240 30% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    /* Brand colors - Cyan accent */
-    --primary: 180 100% 82%;    /* Light cyan #A3F7FF */
-    --primary-foreground: 240 40% 7%;
+    /* Brand colors - Soft blue accent */
+    --primary: 217 91% 60%;     /* #3b82f6 soft blue */
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Purple accent */
-    --secondary: 270 60% 82%;   /* Soft purple #CBA6FF */
-    --secondary-foreground: 240 40% 7%;
+    /* Secondary - Light cream */
+    --secondary: 40 100% 99%;   /* #fefcf9 light cream */
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 240 20% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 214 32% 91%;       /* #e5e7eb light gray */
+    --muted-foreground: 215 16% 47%;  /* #718096 soft gray-blue */
 
-    --accent: 180 100% 82%;
-    --accent-foreground: 240 40% 7%;
+    --accent: 217 91% 60%;      /* Same as primary */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 100%;        /* White border for glass effect */
-    --input: 240 20% 20%;
-    --ring: 180 100% 82%;
+    --border: 214 32% 91%;      /* #e5e7eb light border */
+    --input: 0 0% 100%;
+    --ring: 217 91% 60%;
 
-    --radius: 1rem;
+    --radius: 0.625rem;
 
     /* Custom glassmorphism tokens */
-    --glass-opacity: 0.06;
-    --glass-border-opacity: 0.12;
-    --blur-amount: 8px;
+    --glass-opacity: 0.25;
+    --glass-border-opacity: 0.35;
+    --blur-amount: 14px;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(180, 100%, 82%), hsl(270, 60%, 82%));
-    --gradient-subtle: linear-gradient(180deg, hsl(240, 40%, 9%), hsl(240, 40%, 7%));
+    /* Gradients - Soft cream-white tones */
+    --gradient-primary: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 100%);
+    --gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
     
-    /* Shadows for depth */
-    --shadow-glass: 0 8px 32px 0 rgba(163, 247, 255, 0.1);
-    --shadow-glass-hover: 0 12px 40px 0 rgba(163, 247, 255, 0.15);
+    /* Shadows for depth - Light and soft */
+    --shadow-glass: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-glass-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -73,10 +74,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background: hsl(var(--background));
-    background-image: 
-      radial-gradient(at 20% 20%, rgba(163, 247, 255, 0.08) 0px, transparent 50%),
-      radial-gradient(at 80% 80%, rgba(203, 166, 255, 0.08) 0px, transparent 50%);
+    background: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 100%);
     min-height: 100vh;
   }
 }
@@ -90,6 +88,7 @@ All colors MUST be HSL.
     border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity));
     box-shadow: var(--shadow-glass);
     transition: var(--transition-smooth);
+    border-radius: 16px;
   }
   
   .glass:hover {
@@ -98,13 +97,17 @@ All colors MUST be HSL.
   }
   
   .glass-card {
-    @apply glass rounded-2xl p-6;
+    @apply glass p-6;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
   }
   
   .gradient-text {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 700;
   }
 }

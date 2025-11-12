@@ -11,7 +11,6 @@ const Navigation = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
-    { path: "/tracking", label: "Tracking" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -42,7 +41,7 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="outline" className="glass border-primary/30 hover:bg-primary hover:text-primary-foreground">
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg">
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
@@ -71,7 +70,7 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="outline" className="w-full glass border-primary/30" onClick={() => setIsOpen(false)}>
+            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg" onClick={() => setIsOpen(false)}>
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
