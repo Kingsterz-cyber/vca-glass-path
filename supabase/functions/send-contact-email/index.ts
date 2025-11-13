@@ -134,8 +134,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "Victory Clearing Agency <onboarding@resend.dev>",
-        to: ["iranezezaking07@gmail.com"],
-        cc: ["info@victoryclearing.com"],
+        to: ["mbananayoegide36@gmail.com"],
         subject: `New Contact Message — Victory Clearing Agency — ${fullName}`,
         html: emailHtml,
       }),
