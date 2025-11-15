@@ -78,13 +78,13 @@ const Services = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4">
+      <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center space-y-4 animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold">
               Our <span className="gradient-text">Services</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               Comprehensive customs clearing and logistics solutions tailored to your business needs
             </p>
           </div>
@@ -92,33 +92,37 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 px-4">
+      <section className="py-16 px-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="glass-card animate-scale-in overflow-hidden"
+                className="glass-card overflow-hidden animate-scale-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
+                <div className="relative h-64 w-full overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-6">
+                    <service.icon className="h-12 w-12 text-white drop-shadow-lg" />
+                  </div>
                 </div>
-                <div className="p-6">
-                  <service.icon className="h-12 w-12 text-primary mb-4" />
-                  <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                
+                <div className="p-8">
+                  <h2 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">{service.title}</h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
                   
-                  <div className="space-y-2">
-                    <h3 className="font-semibold text-sm uppercase text-primary mb-3">Key Features</h3>
-                    <ul className="space-y-2">
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-sm uppercase text-primary tracking-wide">Key Features</h3>
+                    <ul className="space-y-3">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
+                        <li key={feature} className="flex items-center text-foreground/80">
+                          <span className="w-2 h-2 rounded-full bg-accent mr-3 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -132,14 +136,20 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 mb-12">
+      <section className="py-16 px-4 mb-16">
         <div className="container mx-auto">
-          <div className="glass-card max-w-4xl mx-auto text-center space-y-6 p-12">
-            <h2 className="text-4xl font-bold">Need a Custom Solution?</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="glass-card max-w-4xl mx-auto text-center space-y-6 p-12 bg-gradient-to-br from-primary/5 to-accent/5">
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Need a <span className="gradient-accent">Custom Solution?</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We're here to help with tailored logistics services that fit your unique requirements
             </p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+            >
               <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>

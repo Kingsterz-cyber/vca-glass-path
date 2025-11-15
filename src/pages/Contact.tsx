@@ -119,13 +119,13 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4">
+      <section className="pt-32 pb-16 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center space-y-4 animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-bold">
               Send Us a <span className="gradient-text">Message</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               Fill out the form below and we'll respond within 24 hours
             </p>
           </div>
@@ -133,15 +133,15 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-8 px-4 mb-12">
+      <section className="py-12 px-4 mb-12">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="glass-card animate-slide-up">
+              <div className="glass-card p-8 animate-slide-up">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium mb-2">
+                    <label htmlFor="fullName" className="block text-sm font-semibold mb-2">
                       Full Name <span className="text-destructive">*</span>
                     </label>
                     <Input
@@ -151,13 +151,13 @@ const Contact = () => {
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       required
-                      className="bg-background/50 border-white/10"
+                      className="bg-white border-border/50 focus:border-primary"
                       maxLength={100}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label htmlFor="email" className="block text-sm font-semibold mb-2">
                       Email Address <span className="text-destructive">*</span>
                     </label>
                     <Input
@@ -167,13 +167,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="bg-background/50 border-white/10"
+                      className="bg-white border-border/50 focus:border-primary"
                       maxLength={255}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-2">
+                    <label htmlFor="company" className="block text-sm font-semibold mb-2">
                       Company Name
                     </label>
                     <Input
@@ -182,13 +182,13 @@ const Contact = () => {
                       placeholder="Your Company"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="bg-background/50 border-white/10"
+                      className="bg-white border-border/50 focus:border-primary"
                       maxLength={100}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    <label htmlFor="phone" className="block text-sm font-semibold mb-2">
                       Phone Number <span className="text-destructive">*</span>
                     </label>
                     <Input
@@ -198,35 +198,31 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       required
-                      className="bg-background/50 border-white/10"
+                      className="bg-white border-border/50 focus:border-primary"
                       maxLength={20}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label htmlFor="message" className="block text-sm font-semibold mb-2">
                       Message <span className="text-destructive">*</span>
                     </label>
                     <Textarea
                       id="message"
-                      placeholder="Tell us about your clearing needs..."
+                      placeholder="Tell us about your customs clearing or cargo transport needs..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       required
-                      rows={6}
-                      className="bg-background/50 border-white/10 resize-none"
-                      maxLength={1000}
+                      className="min-h-[150px] bg-white border-border/50 focus:border-primary"
+                      maxLength={2000}
                     />
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {formData.message.length}/1000 characters
-                    </p>
                   </div>
 
-                  <Button
-                    type="submit"
+                  <Button 
+                    type="submit" 
+                    size="lg" 
                     disabled={isSubmitting}
-                    className="w-full glass border-primary/30 hover:bg-primary hover:text-primary-foreground"
-                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-white text-lg py-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
@@ -236,50 +232,28 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <div className="glass-card animate-slide-up" style={{ animationDelay: "0.1s" }}>
-                <h2 className="text-xl font-bold mb-6">Contact Information</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm">Email</p>
-                      <a
-                        href="mailto:info@victoryclearing.com"
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        info@victoryclearing.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm">Phone</p>
-                      <a
-                        href="tel:+18001234567"
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        +1 (800) 123-4567
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <Clock className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm">Business Hours</p>
-                      <p className="text-sm text-muted-foreground">Monday - Sunday</p>
-                      <p className="text-xs text-muted-foreground mt-1">We're here when you need us</p>
-                    </div>
-                  </div>
-                </div>
+              <div className="glass-card p-8 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+                <Mail className="h-12 w-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold mb-2">Email Us</h3>
+                <p className="text-muted-foreground mb-2">info@victoryclearing.com</p>
+                <p className="text-sm text-muted-foreground">We respond within 24 hours</p>
               </div>
 
-              <div className="glass-card animate-slide-up" style={{ animationDelay: "0.2s" }}>
-                <p className="text-sm text-muted-foreground italic text-center">
-                  "Dear customers, we depend on you — Your satisfaction is our passion 🤳"
-                </p>
+              <div className="glass-card p-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+                <Phone className="h-12 w-12 text-accent mb-4" />
+                <h3 className="text-xl font-bold mb-2">Call Us</h3>
+                <p className="text-muted-foreground mb-2">+1 (800) 123-4567</p>
+                <p className="text-sm text-muted-foreground">Mon-Fri 8am-6pm EAT</p>
+              </div>
+
+              <div className="glass-card p-8 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+                <Clock className="h-12 w-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold mb-2">Business Hours</h3>
+                <div className="space-y-1 text-sm text-muted-foreground">
+                  <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  <p>Saturday: 9:00 AM - 2:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
               </div>
             </div>
           </div>
