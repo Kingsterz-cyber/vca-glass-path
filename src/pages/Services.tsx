@@ -101,7 +101,7 @@ const Services = () => {
                 className="glass-card animate-scale-in overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative h-32 w-full overflow-hidden rounded-t-2xl">
+                <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
                   <img 
                     src={service.image} 
                     alt={service.title}
