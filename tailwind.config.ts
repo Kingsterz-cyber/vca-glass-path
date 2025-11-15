@@ -50,11 +50,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        glass: {
-          DEFAULT: "rgba(255, 255, 255, 0.06)",
-          light: "rgba(255, 255, 255, 0.12)",
-          border: "rgba(255, 255, 255, 0.12)",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",

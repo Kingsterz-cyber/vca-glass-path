@@ -2,68 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional Logistics Design System */
 
 @layer base {
   :root {
-    /* Cream-White Glassmorphism Design System */
-    
-    /* Base colors - Bright cream-white theme */
-    --background: 210 40% 98%;  /* #f8fafc near-white with blue-gray hint */
-    --foreground: 0 0% 10%;     /* #1a1a1a dark gray-black for text */
+    /* Modern Professional Theme */
+    --background: 220 15% 97%;  /* Soft cool white */
+    --foreground: 220 15% 10%;  /* Deep charcoal */
 
     /* Glass effect colors */
     --glass-base: 0 0% 100%;
-    --glass-border: 0 0% 100%;
+    --glass-border: 220 15% 90%;
     
     /* Card colors */
-    --card: 0 0% 100%;          /* Pure white for cards */
-    --card-foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 220 15% 10%;
 
-    /* Brand colors - Soft blue accent */
-    --primary: 217 91% 60%;     /* #3b82f6 soft blue */
+    /* Brand colors - Professional Blue */
+    --primary: 214 95% 50%;     /* Vibrant professional blue */
     --primary-foreground: 0 0% 100%;
-
-    /* Secondary - Light cream */
-    --secondary: 40 100% 99%;   /* #fefcf9 light cream */
-    --secondary-foreground: 0 0% 10%;
-
-    --muted: 214 32% 91%;       /* #e5e7eb light gray */
-    --muted-foreground: 215 16% 47%;  /* #718096 soft gray-blue */
-
-    --accent: 217 91% 60%;      /* Same as primary */
+    
+    /* Accent - Energetic Orange */
+    --accent: 25 95% 53%;       /* Bold orange accent */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Secondary - Cool Gray */
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 15% 10%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;      /* #e5e7eb light border */
-    --input: 0 0% 100%;
-    --ring: 217 91% 60%;
+    --border: 220 15% 88%;
+    --input: 220 15% 95%;
+    --ring: 214 95% 50%;
 
-    --radius: 0.625rem;
+    --radius: 0.75rem;
 
-    /* Custom glassmorphism tokens */
-    --glass-opacity: 0.25;
-    --glass-border-opacity: 0.35;
-    --blur-amount: 14px;
+    /* Custom design tokens */
+    --glass-opacity: 0.3;
+    --glass-blur: 16px;
     
-    /* Gradients - Soft cream-white tones */
-    --gradient-primary: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 100%);
-    --gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(214 95% 50%) 0%, hsl(220 90% 60%) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+    --gradient-overlay: linear-gradient(135deg, rgba(16, 72, 179, 0.92) 0%, rgba(28, 100, 205, 0.88) 100%);
     
-    /* Shadows for depth - Light and soft */
-    --shadow-glass: 0 4px 20px rgba(0, 0, 0, 0.05);
-    --shadow-glass-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
-    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
     
     /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 }
 
@@ -74,63 +73,73 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background: url('/glass-bg.jpg') center/cover no-repeat fixed;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
     min-height: 100vh;
-    position: relative;
-  }
-  
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(248, 250, 252, 0.85) 0%, rgba(240, 244, 248, 0.9) 100%);
-    z-index: -1;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
 @layer utilities {
-  /* Glassmorphism utilities */
-  .glass {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    transition: var(--transition-smooth);
-    border-radius: 16px;
-  }
-  
-  .glass:hover {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-  }
-  
+  /* Modern Glass Cards */
   .glass-card {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
     transition: var(--transition-smooth);
   }
   
   .glass-card:hover {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  /* Hero Overlay */
+  .hero-overlay {
+    background: var(--gradient-overlay);
+    backdrop-filter: blur(2px);
   }
   
+  /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    background: var(--gradient-hero);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
+  }
+
+  /* Accent Gradient */
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(25 95% 53%), hsl(35 95% 58%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Image Overlays */
+  .image-overlay-dark {
+    position: relative;
+  }
+  
+  .image-overlay-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    z-index: 1;
+  }
+
+  /* Feature Cards */
+  .feature-card {
+    @apply glass-card p-6 group cursor-pointer;
+  }
+
+  .feature-card-icon {
+    @apply h-12 w-12 text-primary mb-4 transition-all duration-300;
+    @apply group-hover:scale-110 group-hover:text-accent;
   }
 }
